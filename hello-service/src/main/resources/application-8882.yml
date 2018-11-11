@@ -1,0 +1,19 @@
+server:
+  port: 8882
+
+
+spring:
+  application:
+    name: hello-service
+eureka:
+  instance:
+      prefer-ip-address: true
+      hostname: localhost
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:1111/eureka/
+
+
+

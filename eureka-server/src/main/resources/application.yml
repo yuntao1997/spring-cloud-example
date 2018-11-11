@@ -1,0 +1,19 @@
+server:
+  port: 1111
+
+
+spring:
+  application:
+    name: eureka-server
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    # 关闭注册中心的保护机制（eureka server在运行期间会统计心跳失败的比列在15分钟之类是否低于85，如果低于，eureka server会将当期的实例注册信息保护起来）
+    enable-self-preservation: false
+

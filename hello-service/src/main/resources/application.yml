@@ -1,0 +1,32 @@
+server:
+  port: 8881
+
+
+spring:
+  application:
+    name: hello-service
+eureka:
+  instance:
+      prefer-ip-address: true
+      hostname: localhost
+      # 服务续约 定义续约任务的调用间隔时间
+      lease-renewal-interval-in-seconds: 30
+      # 服务续约 定义最后接收到最后一次心跳后 服务失效的时间
+      lease-expiration-duration-in-seconds: 90
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:1111/eureka/
+    healthcheck:
+      #使用health端点来代替心跳表明服务是否可用，反应到eureka server ui上服务的UP还是DOWN
+      enabled: true
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: "*"
+
+
+
