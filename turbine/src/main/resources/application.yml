@@ -1,0 +1,18 @@
+server:
+  port: 5551
+
+spring:
+  application:
+    name: turbine
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka
+turbine:
+  # 指定了需要收集监控信息的服务名
+  app-config: ribbon-consumer
+  # 指定了集群名称
+  cluster-name-expression: 'appName'
+  # 可以让同主机上的服务通过主机名与端口号的组合来进行区分
+  combine-host-port: true

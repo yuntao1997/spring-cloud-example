@@ -11,9 +11,18 @@ eureka:
       hostname: localhost
   client:
     fetch-registry: true
-    register-with-eureka: false
+    register-with-eureka: true
     service-url:
       defaultZone: http://${eureka.instance.hostname}:1111/eureka/
 
 
-
+management:
+  endpoint:
+    hystrix:
+      stream:
+        enabled: true
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: "*"

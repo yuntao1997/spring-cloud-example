@@ -1,0 +1,7 @@
+server:
+  port: 6661
+
+spring:
+  application:
+    name: hystrix-dashborad
+
