@@ -7,6 +7,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +41,16 @@ public class HelloController {
         }
 
         return "Hello World";
+    }
+
+    @GetMapping(value = "/trace")
+    public String trace(HttpServletRequest request) {
+
+
+        logger.info("===<call trace - 2, Traceid={}, Spanid={}>===",
+                request.getHeader("X - B3-Traceid"), request.getHeader("X-B3-Spanid"));
+        return "trace1";
+
     }
 
 }

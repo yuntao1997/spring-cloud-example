@@ -1,0 +1,27 @@
+server:
+  port: 4441
+
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          # git仓库位置
+          uri:
+          # 仓库路径下的相对搜索位置，可配置多个
+          search-paths:
+          # 访问git仓库的用户名密码
+          username:
+          password:
+eureka:
+  instance:
+      prefer-ip-address: true
+      hostname: localhost
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:1111/eureka/

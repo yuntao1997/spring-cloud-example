@@ -1,0 +1,11 @@
+server:
+  port: 3331
+spring:
+  application:
+    name: zipkin-server
+management:
+  metrics:
+    web:
+      server:
+        # 默认true，会报 IllegalArgumentException，详见 PrometheusMeterRegistry.lambda$collectorByName$9
+        auto-time-requests: false

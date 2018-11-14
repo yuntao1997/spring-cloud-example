@@ -5,6 +5,12 @@ server:
 spring:
   application:
     name: hello-service
+  sleuth:
+    sampler:
+      # 抽样收集比率
+      probability: 1
+  zipkin:
+    base-url: http://localhost:3331
 eureka:
   instance:
       prefer-ip-address: true
